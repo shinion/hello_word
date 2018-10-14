@@ -1,2 +1,1 @@
-# hello_word
-hello word 代码
+ gitsub 教程 https://github.com/geeeeeeeeek/git-recipes
