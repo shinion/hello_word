@@ -1,0 +1,56 @@
+在一个文件夹下创建版本库
+$git init
+
+查询版本信息
+$git log
+
+版本回退
+$git reset --hard 00983//00983为版本头
+
+如果想要找到曾经的所有版本
+$git reflog
+
+从远程库中克隆版本到本地
+$git clone git@gitee.com:shinion/remarks.git 
+//从gitee上的shinion用户的remarks版本库中克隆
+
+检查版本状态
+$git status
+
+更新暂存区
+$git add node.txt //node.txt文件发生改变，放到暂存区
+$git commit -m "说明" //提交本次修改，引号里面的说明可以改成本次提交的大概提要
+
+更新到远程版本库
+$git push gitee master //gitee 为远程版本库标识，master为分支名称
+
+如果要从远程版本库克隆分支other到本地
+1.首先，先克隆master到本地
+$git clone git@gitee.com:shinion/remarks.git //克隆完成后，默认即master分支
+2.创建远程分支的本地克隆
+$git checkout -b other gitee/other
+//创建远程gitee分支other到本地
+
+
+如果要合并分支other到master
+1.切换到master分支
+$git checkout master
+2.合并分支
+$git merge other 
+如果出现冲突，则会显示conflict 信息，修改完成后重新提交
+$git add remarks.txt //重新提交冲突的文件
+$git commit -m "conflict fixed" //提交，并说明
+提交完成后，删除分支
+$git branch -d other
+
+
+//如果首先本地有版本库，然后要和远程空库关联并更新到远程库
+1.关联远程库
+$git remote add gitee git@gitee.com:shinion/remarks.git
+//gitee为远程库标识，关联到远程remarks.git库
+关联后想要查看关联信息
+$git remote -v
+
+//如果先要删除关联信息
+$git remote rm gitee //删除关联信息，gitee远程库标识
+
